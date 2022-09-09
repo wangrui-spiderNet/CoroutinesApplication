@@ -1,19 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_bitmap_with_watermark"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btn_callback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="执行简单的回调"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_http"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="结合Retrofit执行网络请求"
+            app:layout_constraintTop_toBottomOf="@+id/btn_callback"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/btn_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加载网络图片并添加水印"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_http" />
+
+        <Button
+            android:id="@+id/btn_lunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="线性执行异步任务"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_image" />
+
+        <Button
+            android:id="@+id/btn_lunch_fast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="并发处理异步任务"
+            app:layout_constraintLeft_toLeftOf="@+id/btn_lunch"
+            app:layout_constraintTop_toBottomOf="@+id/btn_lunch" />
+
+        <ImageView
+            android:id="@+id/iv_bitmap_with_watermark"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_lunch_fast" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/iv_bitmap_with_watermark"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
